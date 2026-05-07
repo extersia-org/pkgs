@@ -6,7 +6,7 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "meower";
-  version = "0.4-unstable-2025-02-20";
+  version = "1.0-unstable-2025-02-20";
 
   src = fetchFromGitHub {
     owner = "Noxyntious";
