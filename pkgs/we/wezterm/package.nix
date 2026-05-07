@@ -26,7 +26,7 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "wezterm";
-  version = "tparse-0.7.0-unstable-2026-03-31";
+  version = "20240203-110809-5046fc22-unstable-2026-03-31";
 
   src = fetchFromGitHub {
     owner = "wezterm";
