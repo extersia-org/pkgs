@@ -8,7 +8,7 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "nixpkgs-track";
-  version = "0.6.0-unstable-2026-04-11";
+  version = "0-unstable-2026-04-11";
 
   src = fetchFromGitHub {
     owner = "uncenter";
