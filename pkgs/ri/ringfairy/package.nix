@@ -8,7 +8,7 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "ringfairy";
-  version = "0.2.1-alpha-unstable-2026-03-06";
+  version = "0-unstable-2026-03-06";
 
   src = fetchFromGitHub {
     owner = "k3rs3d";
