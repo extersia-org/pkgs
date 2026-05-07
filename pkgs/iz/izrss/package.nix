@@ -6,7 +6,7 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "izrss";
-  version = "0.3.0-unstable-2025-12-15";
+  version = "0-unstable-2025-12-15";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
