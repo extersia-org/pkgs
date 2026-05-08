@@ -4,6 +4,7 @@
   fetchFromGitHub,
   installShellFiles,
   stdenv,
+  nix-update-script,
 }:
 rustPlatform.buildRustPackage {
   pname = "lethe";
@@ -26,6 +27,13 @@ rustPlatform.buildRustPackage {
       --fish <($out/bin/lethe completions fish) \
       --zsh <($out/bin/lethe completions zsh)
   '';
+
+  passthru.updateScript = nix-update-script {
+    extraArgs = [
+      "--version"
+      "branch=HEAD"
+    ];
+  };
 
   meta = {
     homepage = "https://tangled.org/isabelroses.com/lethe";
