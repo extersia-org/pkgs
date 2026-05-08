@@ -1,5 +1,14 @@
+let
+  lockfile = builtins.fromJSON (builtins.readFile ./flake.lock);
+  node = lockfile.nodes.nixpkgs.locked;
+  nixpkgs' = fetchTarball {
+    inherit (node) url;
+    sha256 = node.narHash;
+  };
+in
 {
-  pkgs ? import <nixpkgs> {
+  nixpkgs ? nixpkgs',
+  pkgs ? import nixpkgs {
     inherit system;
     overlays = [ ];
     config.allowUnfree = true;
@@ -16,7 +25,7 @@ let
   # logic based on
   # https://github.com/NixOS/nixpkgs/blob/7d7db0123ed366fe21d80ea7fec3a98746770013/pkgs/top-level/by-name-overlay.nix
   packagesForShard =
-    shard: type:
+    shard: _:
     mapAttrs (name: _: baseDirectory + "/${shard}/${name}/package.nix") (
       readDir (baseDirectory + "/${shard}")
     );
