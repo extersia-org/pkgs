@@ -8,16 +8,16 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "lethe";
-  version = "0.1.0";
+  version = "0-unstable-2026-05-08";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "lethe";
-    rev = "f60f081fd6f4c84867f5791272aa4691a527698f";
-    hash = "sha256-WHxfkiCsNaoiylMoF3WjRZRcJJG5YWbynZ3rw/5nqm4=";
+    rev = "04d034b54240deada681e4ec48e00f149199ea40";
+    hash = "sha256-nCpfTrBWaU0mCtWymCn1x6Z4Fvj4xhPuDAH43DM+bzA=";
   };
 
-  cargoHash = "sha256-v0LUmTtj7RDXWmubdaaoEFYstSEvLnkFtuK5OfBP3og=";
+  cargoHash = "sha256-13GQrXeyqX2e7tQsz5I5DRz05JrpptnJiGItNRIleog=";
 
   nativeBuildInputs = [ installShellFiles ];
 
