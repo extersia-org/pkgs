@@ -7,13 +7,13 @@
 }:
 buildGoModule {
   pname = "hostling";
-  version = "0-unstable-2026-05-06";
+  version = "0-unstable-2026-05-08";
 
   src = fetchFromGitHub {
     owner = "BatteredBunny";
     repo = "hostling";
-    rev = "0d826c6ed38ec9771b8143774e4b0641cdbc344d";
-    hash = "sha256-jdzQ6C22awq6nxjAr0ijc0bsKFIP7V3b9z6v0moH6DQ=";
+    rev = "cb47bb16c76c8897de7b9f9d95a0447968be71d5";
+    hash = "sha256-bldOjxO/cWdiv211MCBS2Cg0nINVg3Qy2EDOZV1+xfk=";
   };
 
   vendorHash = "sha256-erwYPfFuqv0YuLO1WZtRhk0lTmkx764mfWENSN7yEyE=";
