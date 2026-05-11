@@ -8,13 +8,13 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "lethe";
-  version = "0-unstable-2026-05-08";
+  version = "0-unstable-2026-05-10";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "lethe";
-    rev = "04d034b54240deada681e4ec48e00f149199ea40";
-    hash = "sha256-nCpfTrBWaU0mCtWymCn1x6Z4Fvj4xhPuDAH43DM+bzA=";
+    rev = "796deb2216ceee76a776af23f5e2534f769d459b";
+    hash = "sha256-Px/x5UQKRGjg28DP9A3RhKglTYV0YFm1CyDeIxXIvww=";
   };
 
   cargoHash = "sha256-13GQrXeyqX2e7tQsz5I5DRz05JrpptnJiGItNRIleog=";
