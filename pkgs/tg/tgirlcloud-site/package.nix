@@ -15,8 +15,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "tgirlcloud";
     repo = "site";
-    rev = "217c268075244ab17fe6716948f56de0cbf8f4d4";
-    hash = "sha256-SIFGeMC70E9IBSWA44SR7xyRpsscHZShMNny4yiE8hM=";
+    rev = "57f585e43fcc65e8180679a21014d56c0abe8d1c";
+    hash = "sha256-1pwog8QEY9hSFamJUtVXitcVvNuDv4h8ic6Br5fMUBQ=";
   };
 
   nativeBuildInputs = [
