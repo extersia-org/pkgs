@@ -18,8 +18,8 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "BatteredBunny";
     repo = "hostling";
-    rev = "939a4e136261b3aad829b5d22f17265c6011a7a6";
-    hash = "sha256-5X5Sf3PyjsF4Egk/6PrG2E8fVzsZRAyoz+T83kIY5mw=";
+    rev = "d134b9fd6e3caf1733fdbc1db42448dbff3cb099";
+    hash = "sha256-YrlXd3mVg11hVJdkQEBzX7wolpMp1aZNdkHKREEkLs8=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/frontend";
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 3;
-    hash = "sha256-/Adw85K89iyWkTa25l+Dichrz9WXidXbvsF/PfC0d7Y=";
+    hash = "sha256-MMFcvD1maLgFnn2Lw78IpqZrwc8zoVt+pxZ7Ohlztis=";
   };
 
   buildPhase = ''
