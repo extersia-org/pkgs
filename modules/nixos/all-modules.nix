@@ -5,4 +5,5 @@
   ./pds-gatekeeper.nix
   ./piper.nix
   ./hostling.nix
+  ./quoteit.nix
 ]
