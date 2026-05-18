@@ -9,8 +9,8 @@ buildGoModule (finalAttrs: {
 
   src = fetchFromTangled {
     did = "did:plc:tgh3zbclfz53khwi4mmg2ax6";
-    rev = "effa50337ce46a99f696a3267c50f7e6cf33583c";
-    hash = "sha256-m4O2x9A3zewaj2ykhHCKvzx3N8Up7b29fB2p4NlATGM=";
+    rev = "a6fcc88cf5190306bad00a292966e5c398398855";
+    hash = "sha256-PG1XIBhwc4e1HI0OTkxib3OOfKIGHo7hWHRT+lxY7l8=";
   };
 
   vendorHash = "sha256-kgKUSTPEntQtYtXMpbk1Yth9X2xmAZCf/xhOVntofoA=";
