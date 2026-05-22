@@ -13,13 +13,13 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "hostling-frontend";
-  version = "0-unstable-2026-05-15";
+  version = "0-unstable-2026-05-21";
 
   src = fetchFromGitHub {
     owner = "BatteredBunny";
     repo = "hostling";
-    rev = "d134b9fd6e3caf1733fdbc1db42448dbff3cb099";
-    hash = "sha256-YrlXd3mVg11hVJdkQEBzX7wolpMp1aZNdkHKREEkLs8=";
+    rev = "721657f1b00916d1423ff33712a377ea96edb383";
+    hash = "sha256-njOK2rMaxmGq2KGR8WlbIFgA0+EMeO2/WqKWzhGFz7Q=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/frontend";
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
       ;
     inherit pnpm;
     fetcherVersion = 3;
-    hash = "sha256-MMFcvD1maLgFnn2Lw78IpqZrwc8zoVt+pxZ7Ohlztis=";
+    hash = "sha256-Pd9JtYXIxxyzz3fncjDBJbiUTPEXFEVfopPepj8OFiw=";
   };
 
   buildPhase = ''
