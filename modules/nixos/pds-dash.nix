@@ -61,10 +61,9 @@ in
         lib.genAttrs
           [
             "= /"
-            "= /index.html"
             "= /signup"
-            "= /signup.html"
-            "/assets"
+            "/static"
+            "/signup"
           ]
           (_: {
             proxyPass = "http://${cfg.settings.HOST}:${toString cfg.settings.PORT}";
