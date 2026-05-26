@@ -11,8 +11,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "tgirlcloud";
     repo = "pds-dash";
-    rev = "0a0b4bacbe7e560e1bf63d444b9ec87c2ba522d9";
-    hash = "sha256-G/ItunIJn6ic445x+heSiotgrDiz7HEW/xi7KP8saYI=";
+    rev = "158d51cf6dd96ecf653f442eb870d07c0ffd2d14";
+    hash = "sha256-5bdliMSiYEiXMiS8K1nOAYK4treniTNEzW9LJShVI4k=";
   };
 
   cargoHash = "sha256-nt8QLciQyXvvFI3UpcKEkwGSZe7BiabiSBtpNo43m3M=";
