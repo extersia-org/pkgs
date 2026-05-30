@@ -8,7 +8,7 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "nixpkgs-prs";
-  version = "0-unstable-2026-02-19";
+  version = "0.5.1-unstable-2026-02-19";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
