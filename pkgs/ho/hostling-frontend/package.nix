@@ -13,7 +13,7 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "hostling-frontend";
-  version = "0-unstable-2026-05-25";
+  version = "0.4.0-unstable-2026-05-25";
 
   src = fetchFromGitHub {
     owner = "BatteredBunny";
