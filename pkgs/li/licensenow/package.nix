@@ -6,7 +6,7 @@
 }:
 buildGoModule {
   pname = "licencenow";
-  version = "0-unstable-2025-02-01";
+  version = "0.2.0-unstable-2025-02-01";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
