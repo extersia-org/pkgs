@@ -6,7 +6,7 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "locker";
-  version = "0-unstable-2026-05-25";
+  version = "2.0.0-unstable-2026-05-25";
 
   src = fetchFromGitHub {
     owner = "tgirlcloud";
