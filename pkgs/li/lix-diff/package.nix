@@ -6,7 +6,7 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "lix-diff";
-  version = "0-unstable-2026-05-07";
+  version = "1.5.1-unstable-2026-05-07";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
