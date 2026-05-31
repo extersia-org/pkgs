@@ -11,13 +11,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "isabelroses-website";
-  version = "0-unstable-2026-05-29";
+  version = "0-unstable-2026-05-31";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "website";
-    rev = "7f820a192c54bde466b81fc95e2219e412606458";
-    hash = "sha256-qFrvs+l0dxUJdrRAvAECBw+aljc58hTYPz+mo39KzmE=";
+    rev = "d27d542b12d3a18aede1711554038d7c62f10b58";
+    hash = "sha256-exBT084onIqslkBCPQsUtwEsoraHtoiSkKUxL+1XWn4=";
   };
 
   nativeBuildInputs = [
@@ -29,23 +29,19 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
-    hash = "sha256-ERx36z+pJkZ+zaF3JjbCU0ODyhNsWuYjjdHCfI2CnWQ=";
-    fetcherVersion = 3;
+    fetcherVersion = 4;
+    hash = "sha256-y/j0Wxxy2DHYmgzMkpVfrpTSMxBAVH6QpmLbYrdmT3U=";
   };
 
-  dontUseJustInstall = true;
   dontUseJustCheck = true;
 
   env.ASTRO_TELEMETRY_DISABLED = 1;
 
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p "$out"
-    cp -r dist/* "$out"
-
-    runHook postInstall
-  '';
+  justFlags = [
+    "--set"
+    "prefix"
+    (placeholder "out")
+  ];
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
