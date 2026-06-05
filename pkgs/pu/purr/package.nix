@@ -8,16 +8,16 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "purr";
-  version = "1.4.0-unstable-2026-01-25";
+  version = "1.4.1-unstable-2026-06-04";
 
   src = fetchFromGitHub {
     owner = "uncenter";
     repo = "purr";
-    rev = "e2642185231d36f84afd76ddf4afe8abdb19a54a";
-    hash = "sha256-oQX5jDwChQIgskwUB5snScn5ZDmLlQedfaFJYIl7PDk=";
+    rev = "823ce4258131ea3051aa9ff0516f057a63b20d76";
+    hash = "sha256-lNU1N+L8ZdpuVhpSqxMF2hQ6zFZxohd6TIbWCsydjuA=";
   };
 
-  cargoHash = "sha256-vMfve6/8qMAHIY3h93OXMWx1toX7pfPja0UdC3Y6V9g=";
+  cargoHash = "sha256-QaIbE56Ne4u2iE7ZX8D2dq6mLt3pgkP2EbvX6qAvmYk=";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl ];
