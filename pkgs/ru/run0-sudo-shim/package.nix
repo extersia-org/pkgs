@@ -10,14 +10,14 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "run0-sudo-shim";
-  version = "1.2.0-unstable-2026-06-01";
+  version = "1.2.0-unstable-2026-06-08";
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "LordGrimmauld";
     repo = "run0-sudo-shim";
-    rev = "ae23e03851a4536ac5dd06dd203391fddd72ab13";
-    hash = "sha256-uaGJmGr+qHTlC2+jlVPzLF1Qf0Vid8DmxmYtxuG6WH4=";
+    rev = "0cc83451d5171eba0fdcba36b7f1a09b0f023fa4";
+    hash = "sha256-+t1YYIUG1aMYiryiLsXaUoc3nMNjvO5WsD73lIn/BMk=";
   };
 
   cargoHash = "sha256-9t4VsrBnA0JjzdY3Pwv3ynlmdP/rtAQa3HxzqnL/5Xs=";
