@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -13,11 +12,7 @@ in
   options.services.pds-gatekeeper = {
     enable = lib.mkEnableOption "pds-gatekeeper service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.pds-gatekeeper;
-      description = "The package to use for pds-gatekeeper";
-    };
+    package = lib.mkPackageOption extpkgs "pds-gatekeeper" { };
 
     setupNginx = lib.mkEnableOption "to set up a reverse proxy for pds-gatekeeper with nginx";
 

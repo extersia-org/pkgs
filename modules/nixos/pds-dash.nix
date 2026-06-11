@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -13,11 +12,7 @@ in
   options.services.pds-dash = {
     enable = lib.mkEnableOption "pds-dash service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.pds-dash;
-      description = "The package to use for pds-dash";
-    };
+    package = lib.mkPackageOption extpkgs "pds-dash" { };
 
     setupNginx = lib.mkEnableOption "to set up a reverse proxy for pds-dash with nginx";
 

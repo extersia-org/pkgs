@@ -5,15 +5,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-ZyTjizzOIG3SDqQVirsjhI/Ju+yZLbYiwsTy4B53C/c=",
         "path": "../.",
         "type": "path"
       },
       "original": {
         "path": "../.",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "flake-utils": {
       "inputs": {

@@ -1,8 +1,8 @@
-{ extersia }:
 {
   lib,
   pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -12,13 +12,9 @@ let
 in
 {
   options.services.hostling = {
-    enable = lib.mkEnableOption "hostling";
+    enable = lib.mkEnableOption "hostling service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.hostling;
-      description = "The hostling package to use";
-    };
+    package = lib.mkPackageOption extpkgs "hostling" { };
 
     openFirewall = lib.mkEnableOption "" // {
       description = "Open service port in firewall.";

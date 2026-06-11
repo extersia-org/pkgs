@@ -32,8 +32,42 @@ let
 
   packagesFiles = mergeAttrsList (mapAttrsToList packagesForShard (readDir baseDirectory));
 
-  packages = lib.makeScope pkgs.newScope (
-    self: mapAttrs (_: lib.flip self.callPackage { }) packagesFiles
-  );
+  mkPackages =
+    pkgs: lib.makeScope pkgs.newScope (self: mapAttrs (_: lib.flip self.callPackage { }) packagesFiles);
+
+  packages = mkPackages pkgs;
+
+  mkModule =
+    {
+      name ? "default",
+      class,
+      file,
+    }:
+    {
+      _class = class;
+      _file = "${toString ./.}#${class}Modules.${name}";
+      imports = [ file ];
+
+      config._module.args = {
+        extpkgs = packages;
+      };
+    };
 in
-packages
+{
+  inherit packages;
+
+  nixosModules.default = mkModule {
+    class = "nixos";
+    file = ./modules/nixos;
+  };
+
+  darwinModules.default = mkModule {
+    class = "darwin";
+    file = ./modules/darwin;
+  };
+
+  homeModules.default = mkModule {
+    class = "homeManager";
+    file = ./modules/home-manager;
+  };
+}

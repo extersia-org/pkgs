@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -26,11 +25,7 @@ in
   options.services.nixpkgs-prs-bot = {
     enable = mkEnableOption "nixpkgs prs bot";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.nixpkgs-prs;
-      description = "The package to use for blahaj";
-    };
+    package = lib.mkPackageOption extpkgs "nixpkgs-prs" { };
   }
   // (lib.genAttrs posters (poster: {
     enable = mkEnableOption poster // {

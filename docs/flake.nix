@@ -20,14 +20,13 @@
     let
       inherit (nixpkgs) lib;
 
-      forAllSystems =
-        function: lib.genAttrs lib.systems.flakeExposed (system: function nixpkgs.legacyPackages.${system});
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
     in
     {
-      packages = forAllSystems (pkgs: {
-        extersia-docs = pkgs.callPackage ./package.nix {
-          nuscht-search = nuscht-search.packages.${pkgs.stdenv.hostPlatform.system};
-          inherit extersia;
+      packages = forAllSystems (system: {
+        extersia-docs = nixpkgs.legacyPackages.${system}.callPackage ./package.nix {
+          nuscht-search = nuscht-search.packages.${system};
+          extpkgs = extersia.legacyPackages.${system};
         };
       });
     };

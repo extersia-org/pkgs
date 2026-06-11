@@ -41,11 +41,12 @@
           class,
           file,
         }:
+        { pkgs, ... }:
         {
           _class = class;
           _file = "${self.outPath}/flake.nix#${class}Modules.${name}";
-
-          imports = [ (import file { extersiaSelf = self; }) ];
+          imports = [ file ];
+          config._module.args.extpkgs = self.legacyPackages.${pkgs.stdenv.hostPlatform.system};
         };
     in
     {
@@ -63,7 +64,9 @@
       );
 
       # a raw unfilted scope of packages
-      legacyPackages = forAllSystems outputSystems (pkgs: import ./default.nix { inherit pkgs; });
+      legacyPackages = forAllSystems outputSystems (
+        pkgs: (import ./default.nix { inherit pkgs; }).packages
+      );
 
       hydraJobs = forAllSystems cachedSystems (
         pkgs:
@@ -119,7 +122,7 @@
 
       formatter = forAllSystems devSystems (pkgs: pkgs.nixfmt-tree);
 
-      overlays.default = _: prev: import ./default.nix { pkgs = prev; };
+      overlays.default = _: prev: (import ./default.nix { pkgs = prev; }).packages;
 
       nixosModules.default = mkModule {
         class = "nixos";

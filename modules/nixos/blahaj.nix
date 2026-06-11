@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -10,13 +9,9 @@ let
 in
 {
   options.services.blahaj = {
-    enable = lib.mkEnableOption "Enable blahaj service";
+    enable = lib.mkEnableOption "blahaj service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.blahaj;
-      description = "The package to use for blahaj";
-    };
+    package = lib.mkPackageOption extpkgs "blahaj" { };
 
     environmentFile = lib.mkOption {
       type = lib.types.nullOr lib.types.path;

@@ -45,5 +45,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.bsd3;
     maintainers = with lib.maintainers; [ isabelroses ];
     mainProgram = "run0-sudo-shim";
+    platforms = lib.platforms.linux;
   };
 })

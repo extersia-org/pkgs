@@ -1,7 +1,7 @@
 {
   pkgs,
   nuscht-search,
-  extersia,
+  extpkgs,
   ...
 }:
 let
@@ -15,24 +15,24 @@ nuscht-search.mkMultiSearch {
     {
       name = "NixOS modules";
       modules = [
-        (import ../modules/nixos { extersiaSelf = extersia; })
-        { _module.args = { inherit pkgs; }; }
+        ../modules/nixos
+        { _module.args = { inherit pkgs extpkgs; }; }
       ];
       inherit urlPrefix;
     }
     {
       name = "darwin modules";
       modules = [
-        (import ../modules/darwin { extersiaSelf = extersia; })
-        { _module.args = { inherit pkgs; }; }
+        ../modules/darwin
+        { _module.args = { inherit pkgs extpkgs; }; }
       ];
       inherit urlPrefix;
     }
     {
       name = "home-manager modules";
       modules = [
-        (import ../modules/home-manager { extersiaSelf = extersia; })
-        { _module.args = { inherit pkgs; }; }
+        ../modules/home-manager
+        { _module.args = { inherit pkgs extpkgs; }; }
       ];
       inherit urlPrefix;
     }

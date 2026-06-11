@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -12,13 +11,13 @@ let
 in
 {
   options.programs.bellado = {
-    enable = mkEnableOption "A fast and once simple cli todo tool";
+    enable = mkEnableOption "a fast and once simple cli todo tool";
 
     enableAliases = mkEnableOption "recommended bellado aliases";
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ extersia.packages.${pkgs.stdenv.hostPlatform.system}.bellado ];
+    home.packages = [ extpkgs.bellado ];
 
     home.shellAliases = optionalAttrs cfg.enableAliases {
       bel = "bellado";
