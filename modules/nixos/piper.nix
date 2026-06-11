@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -12,11 +11,7 @@ in
   options.services.piper = {
     enable = lib.mkEnableOption "piper service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.piper;
-      description = "The package to use for piper";
-    };
+    package = lib.mkPackageOption extpkgs "piper" { };
 
     settings = lib.mkOption {
       type = lib.types.submodule {

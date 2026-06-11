@@ -1,8 +1,8 @@
-{ extersia }:
 {
   lib,
   pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -21,9 +21,9 @@ in
   meta.maintainers = [ lib.maintainers.isabelroses ];
 
   options.programs.zzz = {
-    enable = mkEnableOption "A code snippet manager for your terminal";
+    enable = mkEnableOption "a code snippet manager for your terminal";
 
-    package = mkPackageOption extersia.packages.${pkgs.stdenv.hostPlatform.system} "zzz" { };
+    package = mkPackageOption extpkgs "zzz" { };
 
     settings = mkOption {
       inherit (settingsFormat) type;

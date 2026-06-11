@@ -1,17 +1,12 @@
-{ extersiaModules, extersiaSelf }:
+{ extersiaModules }:
 { lib, config, ... }:
 let
-  inherit (lib) flip mkIf mkEnableOption;
-  inherit (lib.modules) importApply;
-
-  importApplySelf = map (flip importApply { extersia = extersiaSelf; });
+  inherit (lib) mkIf mkEnableOption;
 in
 {
   options.extersia.cache.enable = mkEnableOption "extersia cache";
 
-  imports = importApplySelf extersiaModules ++ [
-    (lib.mkRenamedOptionModule [ "tgirlpkgs" "cache" "enable" ] [ "extersia" "cache" "enable" ])
-  ];
+  imports = extersiaModules;
 
   config = {
     nix.settings = mkIf config.extersia.cache.enable {

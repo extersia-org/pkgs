@@ -1,8 +1,7 @@
-{ extersia }:
 {
   lib,
-  pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -10,13 +9,9 @@ let
 in
 {
   options.services.quoteit = {
-    enable = lib.mkEnableOption "Enable quoteit service";
+    enable = lib.mkEnableOption "quoteit service";
 
-    package = lib.mkOption {
-      type = lib.types.package;
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.quoteit;
-      description = "The package to use for quoteit";
-    };
+    package = lib.mkPackageOption extpkgs "quoteit" { };
 
     port = lib.mkOption {
       type = lib.types.port;

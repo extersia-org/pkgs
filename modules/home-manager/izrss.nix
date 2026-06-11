@@ -1,8 +1,8 @@
-{ extersia }:
 {
   lib,
   pkgs,
   config,
+  extpkgs,
   ...
 }:
 let
@@ -21,10 +21,10 @@ in
   meta.maintainers = [ lib.maintainers.isabelroses ];
 
   options.programs.izrss = {
-    enable = mkEnableOption "A fast and once simple cli todo tool";
+    enable = mkEnableOption "izrss tui rss feed reader";
 
     package = mkPackageOption pkgs "izrss" { } // {
-      default = extersia.packages.${pkgs.stdenv.hostPlatform.system}.izrss;
+      default = extpkgs.izrss;
     };
 
     settings = mkOption {
