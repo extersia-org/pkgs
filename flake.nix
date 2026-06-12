@@ -102,7 +102,7 @@
                         ++ (lib.tail pkg.updateScript)
                         ++ [
                           "--commit"
-                          name
+                          "packages.${name}"
                         ]
                       else
                         pkg.updateScript
