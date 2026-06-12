@@ -12,18 +12,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions: {}
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: Install Nix
-        uses: cachix/install-nix-action@v31.10.6
+        uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
 
       - name: Build Linux packages
-        run: "nix build -L ./docs#extersia-docs"
+        run: nix build -L ./docs#extersia-docs
 
       - name: Upload Pages Artifact
-        uses: "actions/upload-pages-artifact@v5"
+        uses: "actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9" # v5.0.0
         with:
           path: "result/"
 
@@ -32,8 +36,8 @@ jobs:
     runs-on: "ubuntu-latest"
 
     permissions:
-      pages: "write"
-      id-token: "write"
+      pages: write
+      id-token: write
 
     environment:
       name: "github-pages"
@@ -42,4 +46,4 @@ jobs:
     steps:
       - name: "Deploy to GitHub Pages"
         id: "deployment"
-        uses: "actions/deploy-pages@v5"
+        uses: "actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128" # v5.0.0

@@ -2,11 +2,8 @@ name: Build and populate cache
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - Bump Flake Inputs
-    types:
-      - completed
+  schedule:
+    - cron: "10 0 * * *"
   push:
     paths:
       - "pkgs"
@@ -29,14 +26,18 @@ jobs:
           - os: ubuntu-24.04-arm
             system: aarch64-linux
 
+    permissions: {}
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
 
       - name: Install Lix
-        uses: samueldr/lix-gha-installer-action@v2026-02-22
+        uses: samueldr/lix-gha-installer-action@7b7f14d320d6aacfb65bd1ef761566b3b69e474c # v2026-02-22
 
-      - uses: cachix/cachix-action@v17
+      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
         with:
           name: extersia
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -48,4 +49,3 @@ jobs:
             --skip-cached \
             --systems '${{ matrix.system }}' \
             --flake '.#hydraJobs.${{ matrix.system }}'
-
