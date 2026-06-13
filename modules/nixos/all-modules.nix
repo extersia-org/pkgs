@@ -6,4 +6,5 @@
   ./piper.nix
   ./hostling.nix
   ./quoteit.nix
+  ./snot.nix
 ]
