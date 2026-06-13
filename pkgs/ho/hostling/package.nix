@@ -22,10 +22,7 @@ buildGoModule {
     cp -r ${hostling-frontend} ./public/dist
   '';
 
-  ldflags = [
-    "-s"
-    "-w"
-  ];
+  ldflags = [ "-s" ];
 
   passthru.updateScript = nix-update-script {
     extraArgs = [

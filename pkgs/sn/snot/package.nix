@@ -20,7 +20,6 @@ buildGoModule (finalAttrs: {
 
   ldflags = [
     "-s"
-    "-w"
     "-X main.Version=${finalAttrs.version}"
     "-X github.com/isabelroses/snot/internal/xrpc.version=${finalAttrs.version}"
   ];

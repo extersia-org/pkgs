@@ -24,10 +24,7 @@ buildGoModule (finalAttrs: {
 
   subPackages = [ "cmd" ];
 
-  ldflags = [
-    "-s"
-    "-w"
-  ];
+  ldflags = [ "-s" ];
 
   env.CGO_ENABLED = 1;
 
