@@ -12,11 +12,11 @@ buildGoModule (finalAttrs: {
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "snot";
-    rev = "d65f80582cd46c46b7fe9b042bc20b54f9389f02";
-    hash = "sha256-YNWnwyljFYSuLv5T4yzjVDV5IBjLFGvwqzfLLPD/Wmo=";
+    rev = "0b55b9865c5902c2c13020fad7f6f6ec46a4cf32";
+    hash = "sha256-yKUe/2NsdmRY38qdx0v4JMKTH0yn+nVuEGTandXUOKE=";
   };
 
-  vendorHash = "sha256-DH7PTmkZHjl8VJ4l/2zGg5qYq3+LqI4SvrE4nbNU9yo=";
+  vendorHash = "sha256-b/HJO+zvxFZHr+Z6TEw92VLjaTntaEVhlwFwSa0mLz4=";
 
   ldflags = [
     "-s"
