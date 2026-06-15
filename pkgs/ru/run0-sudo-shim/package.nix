@@ -10,17 +10,17 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "run0-sudo-shim";
-  version = "1.3.0-unstable-2026-06-09";
+  version = "1.3.1-unstable-2026-06-15";
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "LordGrimmauld";
     repo = "run0-sudo-shim";
-    rev = "5b38b36ae5936453dea8b0a9468d069b8ab6dcc2";
-    hash = "sha256-hvShRy+l1GuaUkTNMtLd2rPdRSuxqlF4wycOvCmrerI=";
+    rev = "6e397eebae4c7f3acb8eca080d1c56be5be19e44";
+    hash = "sha256-K+nghy9uAIJQ6Ox9hc3U+utiPJMwskwhPorJ7y7ZZow=";
   };
 
-  cargoHash = "sha256-P5a6AgCBR10skJyB/oQE/sfv54qqjDwpEmPDOOA3QPw=";
+  cargoHash = "sha256-ly2e2x1Z1XEXblGqWi+/r5q2FmvpekVfzGVGm+S1xio=";
 
   env = {
     POLKIT_STDIN_AGENT = lib.getExe polkit-stdin-agent;
