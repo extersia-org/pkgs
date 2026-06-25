@@ -13,8 +13,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "blahaj";
-    rev = "3724115ff3502a2a5d56cb83aa7d42f75b300343";
-    hash = "sha256-iTPTXnhiiUWDsJiiPV8a9RS4ZNkTh60ulbZnC5devhI=";
+    rev = "b9afcd042217afad12eaad9d2db4eef41cd5dde9";
+    hash = "sha256-6TDOlcvA1+Agj8NdITRBsvokLPQlqP7gInUUaSx7FO0=";
   };
 
   cargoHash = "sha256-aedz9Tj1irbiSFRlDB8ioA8OYAK6x5v0XbHR/WibylM=";
@@ -22,7 +22,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   buildInputs = [ openssl ];
   nativeBuildInputs = [ pkg-config ];
 
-  env.BUILD_REV = finalAttrs.version;
+  env.BUILD_REV = finalAttrs.src.rev;
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
