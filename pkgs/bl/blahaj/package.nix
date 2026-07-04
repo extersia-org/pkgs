@@ -8,13 +8,13 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "blahaj";
-  version = "0-unstable-2026-06-30";
+  version = "0-unstable-2026-07-04";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "blahaj";
-    rev = "ff661d5413d0bae34d25f53c0d5575dcaead46a5";
-    hash = "sha256-4H1yD7Q2jKUkQ3WQTt7eyzDEjSvaiqdcqmkyaLOkFlY=";
+    rev = "cf5fbc97b6c27e286b2157236d6706b54c6075de";
+    hash = "sha256-vFc4T+3YmHYTYIm8MsyeY79RYrvAQ61iQWCxS85fNuE=";
   };
 
   cargoHash = "sha256-aedz9Tj1irbiSFRlDB8ioA8OYAK6x5v0XbHR/WibylM=";
