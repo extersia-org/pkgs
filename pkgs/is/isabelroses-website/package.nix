@@ -16,8 +16,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "website";
-    rev = "b41c5b5d92677df1f99b661966a3f9d51eac3aa3";
-    hash = "sha256-1xZs4YNtOpmS+yft22I6qfohwwb/72ndeufBIrXlEQw=";
+    rev = "7624a7d4cf552db507db6980555f47c6dfde128a";
+    hash = "sha256-uVG3e59Mya232HYVHaACNSV+qiHcihu1/iT0EXEJ7sk=";
   };
 
   nativeBuildInputs = [
@@ -30,7 +30,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 4;
-    hash = "sha256-foBcCf/ZRNapmzp1r5RmC56vLkIsTUlHwrtOJVcLMY0=";
+    hash = "sha256-ocnd0c7s96kY00QrIN4Z/QaBaYndgurv5etFUOaN/WY=";
   };
 
   dontUseJustCheck = true;
