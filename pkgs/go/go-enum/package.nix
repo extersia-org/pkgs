@@ -6,13 +6,13 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "go-enum";
-  version = "0.9.3";
+  version = "0.9.4";
 
   src = fetchFromGitHub {
     owner = "abice";
     repo = "go-enum";
     rev = "refs/tags/v${finalAttrs.version}";
-    hash = "sha256-TmoiH1/G3yQmvpDb5+rkX20c41a59pAsVexVbjWtmfI=";
+    hash = "sha256-fFMTnbQ6RUGxvANHveB1YrXlppgUVTJIRB4v1sV3GH8=";
   };
 
   vendorHash = "sha256-hGfwb0GZCxc3EQWvxs7/fNVEVGGQE2I0B+MMaH7ecPM=";
