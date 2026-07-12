@@ -10,13 +10,13 @@
 }:
 clangStdenv.mkDerivation {
   pname = "lix-math";
-  version = "0-unstable-2026-02-09";
+  version = "0-unstable-2026-07-12";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "lix-math";
-    rev = "2e530c03c55cabdad2759e4ef3b05bd599ac1f14";
-    hash = "sha256-sgg8/IQHFOLoXuHI8SsksTelngYSG7/nGR3Jq+S9Te4=";
+    rev = "843489647490823379ce83337708624db33bf6d8";
+    hash = "sha256-R3qHI+qU9O555ETzf9RZUO+FIN9Z+EhUsVqlJmCEgMM=";
   };
 
   makeFlags = [ "PREFIX=$(out)" ];
