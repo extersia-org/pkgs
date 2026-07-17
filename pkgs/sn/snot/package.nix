@@ -7,16 +7,16 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "snot";
-  version = "0-unstable-2026-06-18";
+  version = "0-unstable-2026-07-16";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "snot";
-    rev = "6c86c74b6bd6d6f963546685e690917f151ec424";
-    hash = "sha256-wrZlYlAl/tYGK09qEA7EDnHCqI2x8IE6BCyOHT3eKF0=";
+    rev = "3924b38373de5b0c223fe1546f57c7a5ac67f46a";
+    hash = "sha256-HfVy/maFoDuhXHQmVpBXze4AADt23yi/aB0oKxO9RPI=";
   };
 
-  vendorHash = "sha256-c2wTNpQUQrvm5eSNdzXceCGOnrnEjUdtzCWVX+WJJs8=";
+  vendorHash = "sha256-GeoCWP8azDeQu+acSlmzjf0Adogq/WlbQirB2yma9Tk=";
 
   ldflags = [
     "-s"
