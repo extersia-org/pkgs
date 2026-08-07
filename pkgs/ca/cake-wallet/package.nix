@@ -26,20 +26,18 @@
   libgpg-error,
   copyDesktopItems,
   makeDesktopItem,
-  makeBinaryWrapper,
-  writeScript,
+  nix-update-script,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "cake-wallet";
-  version = "5.6.1";
+  version = "6.3.0";
 
   src = fetchzip {
-    url = "https://github.com/cake-tech/cake_wallet/releases/download/v${finalAttrs.version}/Cake_Wallet_v${finalAttrs.version}_Linux.tar.xz";
-    hash = "sha256-sU3aIL+VVeooGGgBKiQGxwrIa0Zwi1XytYuT0fb5LdA=";
+    url = "https://github.com/cake-tech/cake_wallet/releases/download/v6.3.2/Cake_Wallet_v${finalAttrs.version}_Linux.tar.xz";
+    hash = "sha256-sWcPccC1ffN5x0fZ4ffUXJ0WYhW7EXv+Uj70TEPoSs4=";
   };
 
   nativeBuildInputs = [
-    makeBinaryWrapper
     autoPatchelfHook
     copyDesktopItems
   ];
@@ -88,13 +86,12 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out/{bin,opt/cakewallet}
-    cp -r ./* $out/opt/cakewallet/
+    cp -r * $out/opt/cakewallet/
 
-    # wrap the main binary
-    makeWrapper $out/opt/cakewallet/cake_wallet $out/bin/cake-wallet \
-      --prefix LD_LIBRARY_PATH : "$out/opt/cakewallet/lib:${lib.makeLibraryPath finalAttrs.buildInputs}"
+    ln -s $out/opt/cakewallet/cake_wallet $out/bin/cake-wallet
 
-    # get some icons
+    ln -s libsqlite3_flutter_libs_plugin.so $out/opt/cakewallet/lib/libsqlite3.so
+
     mkdir -p $out/share/icons/hicolor/256x256/apps
     cp $out/opt/cakewallet/data/flutter_assets/assets/images/app_logo.png \
       $out/share/icons/hicolor/256x256/apps/cake-wallet.png
@@ -102,9 +99,9 @@ stdenv.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = writeScript "cake-wallet-update" (
-    builtins.readFile ./update-cake-wallet.sh
-  );
+  appendRunpaths = [ "${placeholder "out"}/opt/cakewallet/lib" ];
+
+  passthru.updateScript = nix-update-script { };
 
   meta = {
     description = "Open-source cryptocurrency wallet";
