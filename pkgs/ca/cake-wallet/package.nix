@@ -26,7 +26,6 @@
   libgpg-error,
   copyDesktopItems,
   makeDesktopItem,
-  nix-update-script,
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "cake-wallet";
@@ -101,7 +100,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   appendRunpaths = [ "${placeholder "out"}/opt/cakewallet/lib" ];
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = ./update.sh;
 
   meta = {
     description = "Open-source cryptocurrency wallet";
