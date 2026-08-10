@@ -30,7 +30,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 4;
-    hash = "sha256-I9418MGweljqij5uQNpuyixVQ0AnIHAdk7DJLV7al0Q=";
+    hash = "sha256-5UkHVM34SHg1/cHaSd+R+/AcN7edOKge0c1Tg5aIe/8=";
   };
 
   dontUseJustCheck = true;
