@@ -7,13 +7,13 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "piper";
-  version = "0-unstable-2026-08-27";
+  version = "0-unstable-2026-09-02";
 
   src = fetchFromGitHub {
     owner = "teal-fm";
     repo = "piper";
-    rev = "af638a2df2fca0853eea821d54ab044a72e19de4";
-    hash = "sha256-ZcgI9ga4sng9X6GbdVFyWlYHWHhGUYiTeLWS7QOfPLQ=";
+    rev = "6ff8c772debd067d2255f254780d22486d99b07f";
+    hash = "sha256-n1G6nbz3Lt38RxP9nwCRLvx31WOO8Au15geyiAWKcAo=";
   };
 
   vendorHash = "sha256-0CAKzBBARoHSqDv34Xx3Yek6r33Exhrhvn+FzGlby14=";
