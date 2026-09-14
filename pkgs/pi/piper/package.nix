@@ -12,8 +12,8 @@ buildGoModule (finalAttrs: {
   src = fetchFromGitHub {
     owner = "teal-fm";
     repo = "piper";
-    rev = "33c71679826c930cf13eb1666aa3e9c5d5d2a341";
-    hash = "sha256-iYY5Rr6CK4Trx4Vu1m138kV1B1Tosq7VxQ/sm3SCY3k=";
+    rev = "28c77c933b6225351753c7f3bce9830bdb01a45a";
+    hash = "sha256-B267U/aKLw7q88v1m/iGDw0ApFcgpD2YaUhwgfBjkmQ=";
   };
 
   vendorHash = "sha256-0CAKzBBARoHSqDv34Xx3Yek6r33Exhrhvn+FzGlby14=";
