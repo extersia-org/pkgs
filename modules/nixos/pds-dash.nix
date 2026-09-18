@@ -59,6 +59,7 @@ in
             "= /signup"
             "/static"
             "/signup"
+            "/migrate"
           ]
           (_: {
             proxyPass = "http://${cfg.settings.HOST}:${toString cfg.settings.PORT}";
