@@ -6,16 +6,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "pds-dash";
-  version = "0-unstable-2026-05-26";
+  version = "0-unstable-2026-09-18";
 
   src = fetchFromGitHub {
     owner = "tgirlcloud";
     repo = "pds-dash";
-    rev = "158d51cf6dd96ecf653f442eb870d07c0ffd2d14";
-    hash = "sha256-5bdliMSiYEiXMiS8K1nOAYK4treniTNEzW9LJShVI4k=";
+    rev = "88eb569cd4dc5c8742de931bac4d73606e5197ab";
+    hash = "sha256-dD3t1cykCj5rAmoX+RePKMiGlrqoO+6Md8hshcqxsEM=";
   };
 
-  cargoHash = "sha256-nt8QLciQyXvvFI3UpcKEkwGSZe7BiabiSBtpNo43m3M=";
+  cargoHash = "sha256-i2gyy6DveaG1CJLvd9nrxpPSTKT+9a1IoDQ2zNXi65A=";
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
