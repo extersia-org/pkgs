@@ -1,19 +1,19 @@
 {
   lib,
   tailwindcss_4,
-  buildGoModule,
+  buildGoLatestModule,
   fetchFromGitHub,
   nix-update-script,
 }:
-buildGoModule (finalAttrs: {
+buildGoLatestModule (finalAttrs: {
   pname = "piper";
-  version = "0.1.0-unstable-2026-09-14";
+  version = "0.1.1-unstable-2026-10-22";
 
   src = fetchFromGitHub {
     owner = "teal-fm";
     repo = "piper";
-    rev = "8dd3f7d613b77049c2ed4e7d965be1f046b1d05c";
-    hash = "sha256-gsdCeNIOaRtN5usoabEFwmaAvcSfdRYaAf+S2aXFojU=";
+    rev = "8177627d1424712202b2c34719cc89b5f7bad099";
+    hash = "sha256-Tx4VvK2aWwadLwlR6O96wWCKvW+XDfHYgQuLnYcdO9M=";
   };
 
   vendorHash = "sha256-0CAKzBBARoHSqDv34Xx3Yek6r33Exhrhvn+FzGlby14=";
