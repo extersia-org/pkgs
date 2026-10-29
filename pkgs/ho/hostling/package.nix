@@ -1,11 +1,11 @@
 {
   lib,
-  buildGoModule,
+  buildGoLatestModule,
   hostling-frontend,
   fetchFromGitHub,
   nix-update-script,
 }:
-buildGoModule {
+buildGoLatestModule {
   pname = "hostling";
   version = "0.4.0-unstable-2026-09-22";
 
