@@ -11,13 +11,13 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "isabelroses-website";
-  version = "0-unstable-2026-08-21";
+  version = "0-unstable-2026-10-28";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "website";
-    rev = "3aa6cf0bbc08497e1d2cee11a92111734b979637";
-    hash = "sha256-gt1ZHQVMuzoVTY840vK0jmQo8kJi1JQr61mkRcurC7Y=";
+    rev = "565a9797f4d2402305ee220cd2d30f86704a4232";
+    hash = "sha256-nsc/Z1jMz2Wk6v85MXCIe9oRnz0yjrcZKDnjRKVTSjs=";
   };
 
   nativeBuildInputs = [
@@ -30,7 +30,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
     fetcherVersion = 4;
-    hash = "sha256-bn0SPLHLsSF2pcjv0gb2GhnAGfMytIsTc8VZXW7imKo=";
+    hash = "sha256-+LR1fHTh6V/JTX8UuwZxLiIlRo+p1IlSzePgiNv4KYo=";
   };
 
   dontUseJustCheck = true;
