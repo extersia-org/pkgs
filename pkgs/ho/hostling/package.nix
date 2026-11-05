@@ -18,7 +18,10 @@ buildGoLatestModule {
 
   vendorHash = "sha256-zHdH/l/CtstwvgCvwDuJClANyUtzZ55YiNcOx+sGUEc=";
 
+  excludedPackages = [ "frontend" ];
+
   prePatch = ''
+    mkdir -p ./public/dist
     cp -r ${hostling-frontend} ./public/dist
   '';
 

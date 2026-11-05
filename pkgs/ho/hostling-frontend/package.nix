@@ -2,24 +2,24 @@
   lib,
   nodejs,
   stdenv,
-  pnpm_10,
+  pnpm_11,
   fetchPnpmDeps,
   pnpmConfigHook,
   fetchFromGitHub,
   nix-update-script,
 }:
 let
-  pnpm = pnpm_10;
+  pnpm = pnpm_11;
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "hostling-frontend";
-  version = "0.5.0-unstable-2026-10-24";
+  version = "0.5.0-unstable-2026-11-04";
 
   src = fetchFromGitHub {
     owner = "BatteredBunny";
     repo = "hostling";
-    rev = "b6dca7efd5682f6dc80b10e73f0a68916afb12b0";
-    hash = "sha256-iHtcSGxkxR/uvr39NsuyA7/t33mJjxL540OdA1/AatQ=";
+    rev = "9bf69d8662d1a4d0522da400298ca59225411f4e";
+    hash = "sha256-MpOsZ9Tu3T52WgGepbkMBUcBy+v7b07tcw7QBZs3gV0=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/frontend";
@@ -38,8 +38,8 @@ stdenv.mkDerivation (finalAttrs: {
       sourceRoot
       ;
     inherit pnpm;
-    fetcherVersion = 3;
-    hash = "sha256-mpBK4XoJd/bUnYe8jcxbUdgsa5mRmEHEJ2gYJdB4sqI=";
+    fetcherVersion = 4;
+    hash = "sha256-ceNItn1V1hOMa9bbwPN7iPTwaRiaxv0pVr01KCh/XGQ=";
   };
 
   buildPhase = ''
