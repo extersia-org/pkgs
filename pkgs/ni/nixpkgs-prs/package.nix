@@ -1,6 +1,7 @@
 {
   lib,
   rustPlatform,
+  rust-bindgen,
   aws-lc,
   fetchFromGitHub,
   openssl,
@@ -20,7 +21,11 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-58kDUaGD+MP14Y+yXXXJ6zUs5E/vV3dtWkxPcE72o+M=";
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    rustPlatform.bindgenHook
+    rust-bindgen
+    pkg-config
+  ];
   buildInputs = [
     aws-lc
     openssl
