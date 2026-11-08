@@ -1,6 +1,7 @@
 {
   lib,
   rustPlatform,
+  aws-lc,
   fetchFromGitHub,
   openssl,
   pkg-config,
@@ -20,7 +21,10 @@ rustPlatform.buildRustPackage {
   cargoHash = "sha256-58kDUaGD+MP14Y+yXXXJ6zUs5E/vV3dtWkxPcE72o+M=";
 
   nativeBuildInputs = [ pkg-config ];
-  buildInputs = [ openssl ];
+  buildInputs = [
+    aws-lc
+    openssl
+  ];
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
