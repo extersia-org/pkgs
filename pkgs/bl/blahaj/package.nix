@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   openssl,
+  sqlite,
   pkg-config,
   nix-update-script,
   fetchFromGitHub,
@@ -19,7 +20,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-zBw5PC16WyqQXAjhibwGeg3cBW7qRbnDWgVQmm9swS0=";
 
-  buildInputs = [ openssl ];
+  buildInputs = [
+    openssl
+    sqlite
+  ];
   nativeBuildInputs = [ pkg-config ];
 
   env.BUILD_REV = finalAttrs.src.rev;
