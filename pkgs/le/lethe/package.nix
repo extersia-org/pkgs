@@ -1,6 +1,8 @@
 {
   lib,
   rustPlatform,
+  pkg-config,
+  sqlite,
   fetchFromGitHub,
   installShellFiles,
   stdenv,
@@ -19,7 +21,12 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-WFPiBmTbkBiZhKtGzEse97QetwPjy36WSxyqrOPMdMw=";
 
-  nativeBuildInputs = [ installShellFiles ];
+  nativeBuildInputs = [
+    installShellFiles
+    pkg-config
+  ];
+
+  buildInputs = [ sqlite ];
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd lethe \
