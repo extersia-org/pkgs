@@ -45,9 +45,17 @@ stdenv.mkDerivation (finalAttrs: {
   buildPhase = ''
     runHook preBuild
 
-    pnpm run build --outDir=$out
+    pnpm run build --outDir=dist
 
     runHook postBuild
+  '';
+
+  installPhase = ''
+    runHook preInstall
+
+    cp -r dist "$out"
+
+    runHook postInstall
   '';
 
   passthru.updateScript = nix-update-script {
