@@ -6,16 +6,16 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "izrss";
-  version = "0.4.0-unstable-2026-08-11";
+  version = "0.5.2-unstable-2026-11-08";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "izrss";
-    rev = "63ddc784b4335f060046362e477ee4968a078220";
-    hash = "sha256-Naj2tyWiTpuhxdd5VUi7B93KJK0hWw09Ytb7cuLFLP4=";
+    rev = "343f71e4ca9fe2b77a4d756dda8ff66c079ec0d1";
+    hash = "sha256-WVbuT33EHz/wNyOLguaV8vgtSstEKm35DkGEISldz+s=";
   };
 
-  vendorHash = "sha256-PMrSfUe6hrnVC35dx4dTkTouFRblRNPTWpv2NM5nbgY=";
+  vendorHash = "sha256-PVrdIpyNF9FwnG1jmBQPdE/CHxGZGUSbNTPeo7uWvvw=";
 
   ldflags = [
     "-s"
