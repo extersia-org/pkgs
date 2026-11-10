@@ -4,6 +4,9 @@
   fetchFromTangled,
   pkg-config,
   openssl,
+  aws-lc,
+  sqlite,
+  zstd,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "pds-gatekeeper";
@@ -17,7 +20,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-ZwDJr6roUnE1GSENWO65i5pvGfHnrUMXDixoCr9cT8g=";
 
-  buildInputs = [ openssl ];
+  buildInputs = [
+    aws-lc
+    openssl
+    sqlite
+    zstd
+  ];
   nativeBuildInputs = [ pkg-config ];
 
   meta = {
