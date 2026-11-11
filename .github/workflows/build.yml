@@ -21,13 +21,10 @@ jobs:
         include:
           - os: ubuntu-latest
             system: x86_64-linux
-            max-jobs: 0
           - os: macos-latest
             system: aarch64-darwin
-            max-jobs: 2
           - os: ubuntu-24.04-arm
             system: aarch64-linux
-            max-jobs: 0
 
     permissions: {}
 
@@ -50,6 +47,5 @@ jobs:
           nix run nixpkgs#nix-fast-build -- \
             --no-nom \
             --skip-cached \
-            --max-jobs '${{ matrix.max-jobs }}' \
             --systems '${{ matrix.system }}' \
             --flake '.#hydraJobs.${{ matrix.system }}'
