@@ -22,8 +22,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-ZwDJr6roUnE1GSENWO65i5pvGfHnrUMXDixoCr9cT8g=";
 
   buildInputs = [
-    aws-lc
     openssl
+    aws-lc
     sqlite
     zstd
   ];
