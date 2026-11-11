@@ -21,6 +21,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-ZwDJr6roUnE1GSENWO65i5pvGfHnrUMXDixoCr9cT8g=";
 
+  OPENSSL_LIB_DIR = "${lib.getLib openssl}/lib";
+  OPENSSL_INCLUDE_DIR = "${lib.getDev openssl}/include";
+
   buildInputs = [
     aws-lc
     openssl
