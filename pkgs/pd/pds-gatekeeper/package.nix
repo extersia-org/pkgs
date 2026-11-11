@@ -5,6 +5,7 @@
   pkg-config,
   openssl,
   aws-lc,
+  rust-bindgen,
   sqlite,
   zstd,
 }:
@@ -26,7 +27,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     sqlite
     zstd
   ];
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [
+    pkg-config
+    rust-bindgen
+    rustPlatform.bindgenHook
+  ];
 
   meta = {
     description = "microservice that sits on the same server as the PDS to add some of the security that the entryway does";

@@ -22,7 +22,7 @@ buildGoLatestModule {
 
   prePatch = ''
     mkdir -p ./public/dist
-    cp -r ${hostling-frontend} ./public/dist
+    cp -r ${hostling-frontend}/. ./public/dist/
   '';
 
   ldflags = [ "-s" ];
