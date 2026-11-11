@@ -39,5 +39,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ isabelroses ];
     mainProgram = "pds_gatekeeper";
+    platforms = lib.platforms.linux;
   };
 })
