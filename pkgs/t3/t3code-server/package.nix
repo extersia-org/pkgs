@@ -4,7 +4,7 @@
   fetchFromGitHub,
   fetchPnpmDeps,
   gh,
-  git,
+  gitMinimal,
   github-copilot-cli,
   lib,
   makeBinaryWrapper,
@@ -16,7 +16,6 @@
   pnpmConfigHook,
   python3,
   rustPlatform,
-  spdx-license-list-data,
   stdenv,
   cacert,
 }:
@@ -50,9 +49,6 @@ stdenv.mkDerivation (finalAttrs: {
       }
       return PreviewBrowser.of({ executable, installed });'
 
-    mkdir -p .generated/third-party-licenses/spdx/v3.28.0
-    cp ${spdx-license-list-data.json}/json/details/*.json \
-      .generated/third-party-licenses/spdx/v3.28.0
   '';
 
   nativeBuildInputs = [
@@ -94,7 +90,7 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm rebuild --pending "''${pnpmInstallFlags[@]}" --filter '!@t3tools/monorepo'
 
     cp .env.example .env
-    pnpm vp run --filter t3 build
+    pnpm --filter t3 run build:bundle
 
     runHook postBuild
   '';
@@ -111,10 +107,19 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm --filter t3 list --prod --depth Infinity --parseable \
       | grep -o 'node_modules/\.pnpm/[^/]*' | sort -u \
       | while read -r entry; do
+          case "$entry" in
+            node_modules/.pnpm/knip@*|node_modules/.pnpm/@effect+tsgo@*) continue ;;
+          esac
           [ -e "$entry" ] || continue
           cp -r --no-preserve=mode "$entry" $dest/node_modules/.pnpm/
         done
     find $dest \( -name '*.map' -o -name '*.py' \) -delete
+    find $dest/node_modules/.pnpm \
+      \( -path '*/node_modules/node-pty/prebuilds/win32-*' \
+         -o -path '*/node_modules/node-pty/prebuilds/darwin-*' \
+         -o -path '*/node_modules/node-pty/prebuilds/linux-arm64*' \
+         -o -path '*/node_modules/effect/src' \
+         -o -path '*/node_modules/effect/src/*' \) -delete
     find $dest -xtype l -delete
 
     makeWrapper ${lib.getExe nodejs} $out/bin/t3 \
@@ -125,7 +130,7 @@ stdenv.mkDerivation (finalAttrs: {
           claude-code
           github-copilot-cli
           codex
-          git
+          gitMinimal
           gh
           opencode
         ]
