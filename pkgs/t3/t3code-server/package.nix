@@ -16,6 +16,7 @@
   pnpmConfigHook,
   python3,
   rustPlatform,
+  spdx-license-list-data,
   stdenv,
   cacert,
 }:
@@ -37,6 +38,15 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   postPatch = ''
+    # This package serves the browser client, not the Electron desktop client.
+    substituteInPlace apps/web/src/main.tsx \
+      --replace-fail \
+        'import { isElectron } from "./env";' \
+        "" \
+      --replace-fail \
+        ${lib.escapeShellArg "    ? isElectron\n      ? import(\"./components/clerk/ElectronManagedAuthShell\")\n      : import(\"./components/clerk/BrowserManagedAuthShell\")"} \
+        ${lib.escapeShellArg "    ? import(\"./components/clerk/BrowserManagedAuthShell\")"}
+
     substituteInPlace apps/server/src/preview/PreviewBrowser.ts \
       --replace-fail \
         '  return PreviewBrowser.of({ executable, installed });' \
@@ -49,6 +59,9 @@ stdenv.mkDerivation (finalAttrs: {
       }
       return PreviewBrowser.of({ executable, installed });'
 
+    mkdir -p .generated/third-party-licenses/spdx/v3.28.0
+    cp ${spdx-license-list-data.json}/json/details/*.json \
+      .generated/third-party-licenses/spdx/v3.28.0
   '';
 
   nativeBuildInputs = [
@@ -90,7 +103,7 @@ stdenv.mkDerivation (finalAttrs: {
     pnpm rebuild --pending "''${pnpmInstallFlags[@]}" --filter '!@t3tools/monorepo'
 
     cp .env.example .env
-    pnpm --filter t3 run build:bundle
+    pnpm vp run --filter t3 build
 
     runHook postBuild
   '';
