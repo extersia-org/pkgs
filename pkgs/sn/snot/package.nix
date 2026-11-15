@@ -12,8 +12,8 @@ buildGoModule (finalAttrs: {
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "snot";
-    rev = "bbfe2f4f90ed914fce336abfa46090f6645f1345";
-    hash = "sha256-aNP2p+7xaPLvqwIMn8XXPRJTja5lGpLEJfbcPH7cmp0=";
+    rev = "816130c3c6ef489f77ccb5aba0409bb404ae93d9";
+    hash = "sha256-Mh8Q7Nb9BtDCCnSROseOq7iAAGUvwMrscE4sbmIQcxk=";
   };
 
   vendorHash = "sha256-UJlHw14n3XH5nM6Cgp/s5mAgYHEqXhhMVYEhVJ408kY=";
