@@ -3,6 +3,7 @@
   rustPlatform,
   pkg-config,
   sqlite,
+  zstd,
   fetchFromGitHub,
   installShellFiles,
   stdenv,
@@ -26,7 +27,10 @@ rustPlatform.buildRustPackage {
     pkg-config
   ];
 
-  buildInputs = [ sqlite ];
+  buildInputs = [
+    sqlite
+    zstd
+  ];
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
     installShellCompletion --cmd lethe \
