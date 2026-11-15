@@ -5,6 +5,7 @@
   ./pds-gatekeeper.nix
   ./piper.nix
   ./hostling.nix
+  ./lethe-server.nix
   ./quoteit.nix
   ./snot.nix
 ]
