@@ -19,6 +19,8 @@
   spdx-license-list-data,
   stdenv,
   cacert,
+  cursor-cli,
+  grok-build,
 }:
 let
   nodejs = nodejs_26;
@@ -140,12 +142,17 @@ stdenv.mkDerivation (finalAttrs: {
       --set-default T3CODE_RESOURCE_MONITOR_PATH ${lib.getExe finalAttrs.passthru.resourceMonitor} \
       --prefix PATH : ${
         lib.makeBinPath [
-          claude-code
-          github-copilot-cli
-          codex
+          # tooling
           gitMinimal
           gh
+
+          # slop machines
           opencode
+          codex
+          claude-code
+          github-copilot-cli
+          cursor-cli
+          grok-build
         ]
       }
 
