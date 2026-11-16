@@ -28,15 +28,15 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "t3code-server";
-  version = "0.1.9";
+  version = "0.1.10-nightly.20261116.4787-unstable-2026-11-16";
   strictDeps = true;
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "pingdotgg";
     repo = "t3code";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-3i5o9gs/nYx0vxyn2ukYtLEA21UZZdX0x4ebgxY8bhI=";
+    rev = "7b620139154e33c136e1785c1c9906d6f2961fb1";
+    hash = "sha256-CmJdmyXpB+Y0DU0lCFqbF8kojrbqgYLF3pYJ/lCzwf8=";
   };
 
   postPatch = ''
@@ -92,14 +92,18 @@ stdenv.mkDerivation (finalAttrs: {
       pnpmWorkspaces
       ;
     fetcherVersion = 5;
-    hash = "sha256-mprGkCoSnB2MM5xE6HdbVtBFJ+qtBmzZTfWTcE5AcjM=";
+    hash = "sha256-IkcGAo4w0aQJjvdWL3bMlDmUx37oRyGJYcr4yyMwAh4=";
   };
 
   buildPhase = ''
     runHook preBuild
 
     export pnpm_config_verify_deps_before_run=false
-    node scripts/update-release-package-versions.ts ${finalAttrs.version}
+    node scripts/update-release-package-versions.ts ${
+      lib.head (lib.splitString "-" finalAttrs.version)
+      + "-nightly."
+      + lib.last (lib.splitString "-unstable-" finalAttrs.version)
+    }
 
     export npm_config_nodedir=${nodejs}
     pnpm rebuild --pending "''${pnpmInstallFlags[@]}" --filter '!@t3tools/monorepo'
@@ -162,9 +166,10 @@ stdenv.mkDerivation (finalAttrs: {
   passthru = {
     updateScript = nix-update-script {
       extraArgs = [
-        "--use-github-releases"
+        "--version"
+        "branch=maria/redesign/6-workspace-panes"
         "--version-regex"
-        "^v([0-9]+[.][0-9]+[.][0-9]+)$"
+        "^v([0-9]+[.][0-9]+[.][0-9]+.*)$"
         "--subpackage"
         "resourceMonitor"
       ];
@@ -182,7 +187,6 @@ stdenv.mkDerivation (finalAttrs: {
   meta = {
     description = "T3 Code headless server";
     homepage = "https://t3.codes";
-    changelog = "https://github.com/pingdotgg/t3code/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.mit;
     mainProgram = "t3";
     platforms = [ "x86_64-linux" ];
