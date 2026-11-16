@@ -10,16 +10,16 @@
 }:
 rustPlatform.buildRustPackage {
   pname = "nixpkgs-prs";
-  version = "0.5.1-unstable-2026-02-19";
+  version = "0.5.1-unstable-2026-11-16";
 
   src = fetchFromGitHub {
     owner = "isabelroses";
     repo = "nixpkgs-prs-bot";
-    rev = "69d1b60331c5402836ba0b81c70fef7c84233691";
-    hash = "sha256-PHM8aqZVFM3qa9rARGy0RQBynwH4dW90LnMwPqpCSdE=";
+    rev = "f18f3f2cf944f4434a8b9b56a8bb2ed51626af0e";
+    hash = "sha256-mX3FqLEbYAvdQkIA/U6OWKFGBctPtQgbNywIuXBrWLE=";
   };
 
-  cargoHash = "sha256-58kDUaGD+MP14Y+yXXXJ6zUs5E/vV3dtWkxPcE72o+M=";
+  cargoHash = "sha256-PP6fk4K0/pXm9kqMhgELWrHdnoDLcBO3nWukt3NkjZI=";
 
   nativeBuildInputs = [
     rustPlatform.bindgenHook
