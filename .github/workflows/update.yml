@@ -30,6 +30,8 @@ jobs:
 
       - name: Update Packages
         run: nix run .#update
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Push changes
         run: git push origin main
