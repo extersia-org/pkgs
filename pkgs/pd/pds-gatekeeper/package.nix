@@ -4,7 +4,6 @@
   fetchFromTangled,
   pkg-config,
   openssl,
-  aws-lc,
   rust-bindgen,
   sqlite,
   zstd,
@@ -23,7 +22,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   buildInputs = [
     openssl
-    aws-lc
     sqlite
     zstd
   ];

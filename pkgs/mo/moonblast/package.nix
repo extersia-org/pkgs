@@ -25,8 +25,10 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-SUwaNSXbs1s8m2Hdj7NtQjRDuNtanhvToCQAwUrYCf4=";
   };
 
-  buildInputs = [ scdoc ];
-  nativeBuildInputs = [ makeBinaryWrapper ];
+  nativeBuildInputs = [
+    makeBinaryWrapper
+    scdoc
+  ];
 
   makeFlags = [ "PREFIX=$(out)" ];
 

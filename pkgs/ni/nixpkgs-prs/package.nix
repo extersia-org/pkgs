@@ -2,9 +2,7 @@
   lib,
   rustPlatform,
   rust-bindgen,
-  aws-lc,
   fetchFromGitHub,
-  openssl,
   pkg-config,
   nix-update-script,
 }:
@@ -25,10 +23,6 @@ rustPlatform.buildRustPackage {
     rustPlatform.bindgenHook
     rust-bindgen
     pkg-config
-  ];
-  buildInputs = [
-    aws-lc
-    openssl
   ];
 
   passthru.updateScript = nix-update-script {

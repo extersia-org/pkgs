@@ -22,8 +22,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   sourceRoot = "${finalAttrs.src.name}/pkgs/playercontrol";
 
-  buildInputs = [ scdoc ];
-  nativeBuildInputs = [ makeBinaryWrapper ];
+  nativeBuildInputs = [
+    makeBinaryWrapper
+    scdoc
+  ];
 
   makeFlags = [ "PREFIX=$(out)" ];
 
