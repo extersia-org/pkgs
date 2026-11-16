@@ -21,13 +21,13 @@ clangStdenv.mkDerivation {
 
   makeFlags = [ "PREFIX=$(out)" ];
 
-  nativeBuildInputs = [ pkg-config ];
-
-  buildInputs = [
-    lix
+  nativeBuildInputs = [
+    pkg-config
     boost
     capnproto
   ];
+
+  buildInputs = [ lix ];
 
   passthru.updateScript = nix-update-script {
     extraArgs = [
