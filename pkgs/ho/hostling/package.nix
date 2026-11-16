@@ -12,8 +12,8 @@ buildGoLatestModule {
   src = fetchFromGitHub {
     owner = "BatteredBunny";
     repo = "hostling";
-    rev = "de92eb56a201ec6969ea3aa47b96ecb19d899d93";
-    hash = "sha256-myRSBiR3RI7FNNGdo4I3WQ6c9tRjKQVHWSPd1lrb33s=";
+    rev = "df8391d8e049bab331f9a2a5ec246a5dacfc8e49";
+    hash = "sha256-hVQQysK88daa0RO7WpyDD+GiEC+WSgMhvfvs6PifM3c=";
   };
 
   vendorHash = "sha256-50DeuEzupoj2/gxY/Fvg2ms/vpM/y5TWWS2T+LMsHwk=";
