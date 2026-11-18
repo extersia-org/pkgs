@@ -11,6 +11,7 @@
   node-gyp,
   nodejs_26,
   nix-update-script,
+  rtk,
   opencode,
   pnpm_12,
   pnpmConfigHook,
@@ -20,7 +21,6 @@
   stdenv,
   cacert,
   cursor-cli,
-  grok-build,
 }:
 let
   nodejs = nodejs_26;
@@ -156,7 +156,9 @@ stdenv.mkDerivation (finalAttrs: {
           claude-code
           github-copilot-cli
           cursor-cli
-          grok-build
+
+          # token reduction for agent shell commands
+          rtk
         ]
       }
 
