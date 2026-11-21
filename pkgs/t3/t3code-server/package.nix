@@ -28,15 +28,15 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "t3code-server";
-  version = "0.1.11-nightly.20261120.4969-unstable-2026-11-19";
+  version = "0.1.12-nightly.20261121.5024-unstable-2026-11-21";
   strictDeps = true;
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "pingdotgg";
     repo = "t3code";
-    rev = "53dfd3e5f6d795f784da974cb1e098d7ced90e74";
-    hash = "sha256-mUWw6gxllRj1uXj2hd6OupCOxfSjUxWQ0XSSCeOvEzM=";
+    rev = "104c32a03d54fb395cb3e47a48ff4d3d5e450533";
+    hash = "sha256-dyMPCpIoql95Su7/RhTtllpWOcGQiw/qrz2PeceVoZE=";
   };
 
   postPatch = ''
