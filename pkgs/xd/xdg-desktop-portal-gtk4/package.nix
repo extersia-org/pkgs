@@ -11,17 +11,17 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "xdg-desktop-portal-gtk4";
-  version = "1.6.6";
+  version = "1.6.7";
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "JohnRTitor";
     repo = "xdg-desktop-portal-gtk4";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-F15UsZx/mqcHAxVbDkpYpDOqTxKvrUNGXY/D8FzyWcQ=";
+    hash = "sha256-VRHucxX0w8+3cFXmDd9xrhu/Yn/HRnBmm0svqenTpD0=";
   };
 
-  cargoHash = "sha256-ZbYZCshfrj60tPt0HEMMyp4fO7ZXCWiHaCBs69ZPORA=";
+  cargoHash = "sha256-hSPFj/0U1HwIYE94K/EuSBjGureGePFvxKKOG0k+qKs=";
 
   nativeBuildInputs = [
     pkg-config
