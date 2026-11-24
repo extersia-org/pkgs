@@ -6,6 +6,7 @@
   gh,
   gitMinimal,
   github-copilot-cli,
+  antigravity-cli,
   lib,
   makeBinaryWrapper,
   node-gyp,
@@ -60,6 +61,25 @@ stdenv.mkDerivation (finalAttrs: {
         });
       }
       return PreviewBrowser.of({ executable, installed });'
+
+    # Strip telemetry: replace the PostHog/ingest.t3.codes analytics service with
+    # a no-op so it never reads ~/.codex/auth.json or ~/.claude.json for identity
+    # hashing, and never phones home.
+    substituteInPlace apps/server/src/telemetry/AnalyticsService.ts \
+      --replace-fail \
+        'export const layer = Layer.effect(AnalyticsService, make);' \
+        'export const layer = Layer.succeed(
+      AnalyticsService,
+      AnalyticsService.of({
+        record: () => Effect.void,
+        flush: Effect.void,
+        recordOwners: () => Effect.void,
+      }),
+    );'
+    substituteInPlace apps/server/src/serverRuntimeStartup.ts \
+      --replace-fail \
+        '  yield* analytics.recordOwners(yield* getServerOwners, "server");' \
+        ""
 
     mkdir -p .generated/third-party-licenses/spdx/v3.28.0
     cp ${spdx-license-list-data.json}/json/details/*.json \
@@ -156,6 +176,7 @@ stdenv.mkDerivation (finalAttrs: {
           claude-code
           github-copilot-cli
           cursor-cli
+          antigravity-cli
 
           # token reduction for agent shell commands
           rtk
