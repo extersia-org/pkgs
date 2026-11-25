@@ -48,5 +48,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     license = lib.licenses.lgpl21Only;
     maintainers = with lib.maintainers; [ isabelroses ];
     mainProgram = "xdg-desktop-portal-gtk4";
+    # gdk4-wayland and gdk4-x11 require the GTK4 backends, which nixpkgs does
+    # not build on Darwin.
+    platforms = lib.platforms.linux;
   };
 })
