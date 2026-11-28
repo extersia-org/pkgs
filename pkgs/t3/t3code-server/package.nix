@@ -29,15 +29,15 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "t3code-server";
-  version = "0.1.14-nightly.20261127.5319-unstable-2026-11-27";
+  version = "0.1.14-nightly.20261128.5372-unstable-2026-11-28";
   strictDeps = true;
   __structuredAttrs = true;
 
   src = fetchFromGitHub {
     owner = "pingdotgg";
     repo = "t3code";
-    rev = "56fe04a9dff6e94c542c4d40d65f5d3fce303d7e";
-    hash = "sha256-7Xaf8RLyIX5Xs6LJJ+3Losqv3pqtr+DXp35pmUyIA38=";
+    rev = "fd7eb3d801f0e4a5aff3ad23ade4c716c7ca0e74";
+    hash = "sha256-GwD7yMkx1bB9GHuz3zQJBKaqj83RH4bJQ2fX/5+IxSo=";
   };
 
   postPatch = ''
@@ -112,7 +112,7 @@ stdenv.mkDerivation (finalAttrs: {
       pnpmWorkspaces
       ;
     fetcherVersion = 5;
-    hash = "sha256-OW8H/14v+FzFroVj5yjHeK6ij+Vo1wpqs5y2rKZXegU=";
+    hash = "sha256-qy6hICOKp+/2SdJu3zJbi93K4CTa4BbOKbY2ZJYBcAQ=";
   };
 
   buildPhase = ''
@@ -202,7 +202,7 @@ stdenv.mkDerivation (finalAttrs: {
       pname = "${finalAttrs.pname}-resource-monitor";
       inherit (finalAttrs) version src;
       sourceRoot = "${finalAttrs.src.name}/native/resource-monitor";
-      cargoHash = "sha256-5cmG2daM1bVOA23gjjoalbx0fEL1hmqV6WZov0sUZp8=";
+      cargoHash = "sha256-QartZALjE2BxgfKcV3CJjtG6oSNE/Vcbz2ESx1UrRbk=";
       meta.mainProgram = "t3-resource-monitor";
     };
   };
